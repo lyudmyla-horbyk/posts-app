@@ -10,20 +10,40 @@
         placeholder="Email"
         required
       />
-      <button class="login-button" type="button">Submit</button>
+      <button v-on:click.prevent="submitEmail" class="login-button" type="button">Submit</button>
     </form>
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       email: "",
-      password: ""
+      allowedEmails: []
     };
   },
-  methods: {},
-  mounted() {}
+  methods: {
+    submitEmail(event) {
+      if (this.allowedEmails.includes(this.emeil)) {
+        console.log("goood");
+      } else {
+        console.log("bad");
+        this.$emit("incorrectEmail", event);
+      }
+    }
+  },
+  mounted() {
+    // send a GET request
+    axios.get("https://jsonplaceholder.typicode.com/users").then(
+      response => {
+        this.allowedEmails = response.data.map(a => a.email);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 };
 </script>
 <style scoped lang="scss">
