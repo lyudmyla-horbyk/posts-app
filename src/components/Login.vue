@@ -10,7 +10,7 @@
         placeholder="Email"
         required
       />
-      <button v-on:click.prevent="submitEmail" class="login-button" type="button">Submit</button>
+      <button v-on:click="submitEmail" class="login-button" type="button">Submit</button>
     </form>
   </div>
 </template>

@@ -1,15 +1,18 @@
 <template>
   <div>
     <login />
+    <PopupIncorrectEmail />
   </div>
 </template>
 
 <script>
 import Login from "./components/Login";
+import PopupIncorrectEmail from "./components/PopupIncorrectEmail";
 export default {
   name: "app",
   components: {
-    Login
+    Login,
+    PopupIncorrectEmail
   }
 };
 </script>
