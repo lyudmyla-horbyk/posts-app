@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     submitEmail(event) {
-      if (this.allowedEmails.includes(this.emeil)) {
+      if (this.allowedEmails.includes(this.email)) {
         console.log("goood");
       } else {
         console.log("bad");
