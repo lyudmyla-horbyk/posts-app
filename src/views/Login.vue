@@ -16,8 +16,8 @@
   </div>
 </template>
 <script>
-import axios from "axios";
 import PopupIncorrectEmail from "../components/PopupIncorrectEmail";
+import { mapActions, mapGetters } from "vuex";
 export default {
   components: {
     PopupIncorrectEmail
@@ -25,33 +25,28 @@ export default {
   data() {
     return {
       email: "",
-      allowedEmails: [],
       popupIncorrectEmail: false
     };
+  },
+  computed: {
+    ...mapGetters(["allowedEmails"])
   },
   methods: {
     submitEmail() {
       if (this.allowedEmails.includes(this.email)) {
-        console.log("goood");
+        this.login(this.email);
       } else {
-        console.log("bad");
         this.popupIncorrectEmail = true;
       }
     },
     closePopup() {
       this.popupIncorrectEmail = false;
-    }
+    },
+    ...mapActions(["fetchUsers", "login"])
   },
   mounted() {
     // send a GET request
-    axios.get("https://jsonplaceholder.typicode.com/users").then(
-      response => {
-        this.allowedEmails = response.data.map(a => a.email);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.fetchUsers();
   }
 };
 </script>
