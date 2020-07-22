@@ -12,25 +12,34 @@
       />
       <button v-on:click="submitEmail" class="login-button" type="button">Submit</button>
     </form>
+    <PopupIncorrectEmail v-on:close="closePopup" v-if="popupIncorrectEmail" />
   </div>
 </template>
 <script>
 import axios from "axios";
+import PopupIncorrectEmail from "./PopupIncorrectEmail";
 export default {
+  components: {
+    PopupIncorrectEmail
+  },
   data() {
     return {
       email: "",
-      allowedEmails: []
+      allowedEmails: [],
+      popupIncorrectEmail: false
     };
   },
   methods: {
-    submitEmail(event) {
+    submitEmail() {
       if (this.allowedEmails.includes(this.email)) {
         console.log("goood");
       } else {
         console.log("bad");
-        this.$emit("incorrectEmail", event);
+        this.popupIncorrectEmail = true;
       }
+    },
+    closePopup() {
+      this.popupIncorrectEmail = false;
     }
   },
   mounted() {
