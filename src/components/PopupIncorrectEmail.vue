@@ -1,12 +1,12 @@
 <template>
   <div class="popup-wrapper">
     <div class="backdrop"></div>
-    <div class="popup">
+    <div class="popup" ref="popup">
       <div class="popup-content">
         <form class="incorect-email-form">
           <p>Error</p>
           <a href="#">
-            <i class="fas fa-times"></i>
+            <i v-on:click="closePopup" class="fas fa-times"></i>
           </a>
           <p>No such user</p>
         </form>
@@ -19,8 +19,26 @@ export default {
   data() {
     return {};
   },
-  methods: {},
-  mounted() {}
+  methods: {
+    closePopup() {
+      this.$emit("close");
+    },
+    listener(event) {
+      const popupElement = this.$refs.popup;
+      const isClickedInsidePopup = event.path.includes(popupElement);
+      if (!isClickedInsidePopup) {
+        this.closePopup();
+      }
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      window.addEventListener("click", this.listener);
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener("click", this.listener);
+  }
 };
 </script>
 
