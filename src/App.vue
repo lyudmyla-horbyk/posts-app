@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <router-view />
+  <div class="wrapper">
+    <div class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -17,6 +19,7 @@ export default {
 <style lang="scss">
 body {
   margin: auto;
+  font-family: "Roboto", sans-serif;
 }
 header,
 main,
@@ -31,5 +34,15 @@ nav {
   margin: 0;
   padding: 0;
   width: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  max-width: 960px;
+  margin: 30px auto;
 }
 </style>

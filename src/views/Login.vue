@@ -38,13 +38,12 @@ export default {
         this.$router.push({ name: "Home" });
       } else {
         this.popupIncorrectEmail = true;
-        this.logout(this.email);
       }
     },
     closePopup() {
       this.popupIncorrectEmail = false;
     },
-    ...mapActions(["fetchUsers", "login", "logout"])
+    ...mapActions(["fetchUsers", "login"])
   },
   mounted() {
     // send a GET request
@@ -54,9 +53,6 @@ export default {
 </script>
 <style scoped lang="scss">
 .login-wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
   .form {
     width: 500px;
     .title {
@@ -78,6 +74,12 @@ export default {
       cursor: pointer;
       text-transform: uppercase;
       margin-top: 15px;
+      &:hover {
+        border-image: linear-gradient(45deg, #3fb481 0%, blue 100%);
+        border-image-slice: 1;
+        color: #3fb481;
+        transition: 0.2s;
+      }
     }
   }
 }

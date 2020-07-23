@@ -24,12 +24,9 @@ export default {
 </script>
 <style scoped lang="scss">
 .user-wrapper {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   .user {
     line-height: 1.7;
+    width: 100vw;
     .user-title {
       font: 38px "Maven Pro", sans-serif;
       margin-bottom: 8px;
