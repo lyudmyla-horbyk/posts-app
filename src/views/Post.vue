@@ -1,5 +1,6 @@
 <template>
   <div class="post-wrapper">
+    <Header />
     <div class="post">
       <h1 class="post-title">Post Info</h1>
       <p>Title: {{ post.title }}</p>
@@ -13,6 +14,7 @@
   </div>
 </template>
 <script>
+import Header from "../components/Header";
 import axios from "axios";
 export default {
   data() {
@@ -21,7 +23,9 @@ export default {
       comments: []
     };
   },
-  components: {},
+  components: {
+    Header
+  },
   mounted() {
     // send a GET request
     axios
