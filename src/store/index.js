@@ -15,6 +15,9 @@ export default new Vuex.Store({
     },
     userLogin(state, userId) {
       state.currentUserEmail = userId;
+    },
+    removeEmail(state, userId) {
+      state.currentUserEmail != userId;
     }
   },
   actions: {
@@ -30,6 +33,9 @@ export default new Vuex.Store({
     },
     login({ commit }, userEmail) {
       commit("userLogin", userEmail);
+    },
+    logout({ commit }) {
+      commit("removeEmail");
     }
   },
   getters: {
