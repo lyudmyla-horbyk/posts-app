@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 <template>
   <div class="login-wrapper">
     <form class="form">
@@ -53,11 +54,16 @@ export default {
 </script>
 <style scoped lang="scss">
 .login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
   .form {
     width: 500px;
     .title {
       font: 38px "Maven Pro", sans-serif;
       text-align: center;
+      color: #3fb481;
     }
     .login-email-input {
       width: 100%;

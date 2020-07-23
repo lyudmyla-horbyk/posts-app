@@ -3,13 +3,9 @@
     <Header />
     <div class="posts">
       <div class="post" v-for="post in posts" :key="post.title">
-        <router-link :to="{ name: 'Post' , params: { id: post.id } }">
-          <a class="post-title" href="#">{{ post.title }}</a>
-        </router-link>
+        <router-link :to="{ name: 'Post', params: { id: post.id } }">{{ post.title }}</router-link>
         <p>{{ post.body }}</p>
-        <router-link :to="{ name: 'User' }">
-          <a href="#">User Profile</a>
-        </router-link>
+        <router-link :to="{ name: 'User', params: { id: post.userId } }">Author Profile</router-link>
       </div>
     </div>
   </div>

@@ -1,18 +1,20 @@
 <template>
   <div class="post-wrapper">
     <Header />
-    <div class="post">
+    <div class="post" v-if="post">
       <h1 class="post-title">Post Info</h1>
       <p>Title: {{ post.title }}</p>
       <p>Body: {{ post.body }}</p>
     </div>
-    <div class="comment" v-for="comment in comments" :key="comment.email">
-      <div class="email-container">
-        <p>Email: {{ comment.email }}</p>
-      </div>
-      <div class="main-info-container">
-        <p>Name: {{ comment.name }}</p>
-        <p>Body: {{ comment.body }}</p>
+    <div v-if="comments.length">
+      <div class="comment" v-for="comment in comments" :key="comment.email">
+        <div class="email-container">
+          <p>Email: {{ comment.email }}</p>
+        </div>
+        <div class="main-info-container">
+          <p>Name: {{ comment.name }}</p>
+          <p>Body: {{ comment.body }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -23,7 +25,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      post: [],
+      post: null,
       comments: []
     };
   },
@@ -51,7 +53,6 @@ export default {
       .then(
         response => {
           this.comments = response.data;
-          console.log(response.data);
         },
         error => {
           console.log(error);

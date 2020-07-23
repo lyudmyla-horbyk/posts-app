@@ -44,6 +44,9 @@ export default new Vuex.Store({
     },
     user(state) {
       return state.users.find(user => user.email === state.currentUserEmail);
+    },
+    isLoggedIn(state) {
+      return !!state.currentUserEmail;
     }
   }
 });
