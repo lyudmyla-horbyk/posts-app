@@ -1,4 +1,4 @@
-# text-editor
+# posts-app
 This project is a simple posts-app.
 
 ### Technologies
