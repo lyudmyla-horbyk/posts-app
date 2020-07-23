@@ -15,12 +15,12 @@ const routes = [
     },
     {
         name: "Login",
-        path: "/login",
+        path: "/",
         component: Login
     },
     {
         name: "Post",
-        path: "/post",
+        path: "/post/:id",
         component: Post
     },
     {
