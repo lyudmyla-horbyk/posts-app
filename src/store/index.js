@@ -16,8 +16,8 @@ export default new Vuex.Store({
     userLogin(state, userId) {
       state.currentUserEmail = userId;
     },
-    removeEmail(state, userId) {
-      state.currentUserEmail != userId;
+    userLogout(state) {
+      state.currentUserEmail = null;
     }
   },
   actions: {
@@ -35,7 +35,7 @@ export default new Vuex.Store({
       commit("userLogin", userEmail);
     },
     logout({ commit }) {
-      commit("removeEmail");
+      commit("userLogout");
     }
   },
   getters: {

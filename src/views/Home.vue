@@ -31,7 +31,6 @@ export default {
     axios.get("https://jsonplaceholder.typicode.com/posts").then(
       response => {
         this.posts = response.data;
-        console.log(response.data);
       },
       error => {
         console.log(error);
@@ -42,14 +41,9 @@ export default {
 </script>
 <style scoped lang="scss">
 .posts-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 10px 10px 0 10px;
   .post {
-    padding: 8px;
-    border: 2px solid #f2f2f2;
+    padding: 20px;
+    border: 2px solid #3fb481;
     margin-bottom: 10px;
     border-radius: 5px;
     line-height: 1.7;

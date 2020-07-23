@@ -7,9 +7,13 @@
       <p>Body: {{ post.body }}</p>
     </div>
     <div class="comment" v-for="comment in comments" :key="comment.email">
-      <p>Email: {{ comment.email }}</p>
-      <p>Name: {{ comment.name }}</p>
-      <p>Body: {{ comment.body }}</p>
+      <div class="email-container">
+        <p>Email: {{ comment.email }}</p>
+      </div>
+      <div class="main-info-container">
+        <p>Name: {{ comment.name }}</p>
+        <p>Body: {{ comment.body }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +39,6 @@ export default {
       .then(
         response => {
           this.post = response.data;
-          console.log(response.data);
         },
         error => {
           console.log(error);
@@ -59,30 +62,31 @@ export default {
 </script>
 <style scoped lang="scss">
 .post-wrapper {
-  margin: 10px 10px 0 10px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
   .post {
     margin-bottom: 10px;
     line-height: 1.7;
-    width: 800px;
     padding: 20px;
-    border: 2px solid black;
+    border: 2px solid #3fb481;
     border-radius: 5px;
     .post-title {
       font: 25px "Maven Pro", sans-serif;
       text-align: center;
+      margin-bottom: 10px;
     }
   }
   .comment {
-    width: 800px;
+    display: flex;
     padding: 20px;
-    border: 2px solid #f2f2f2;
+    border: 2px solid #e6ffe6;
     border-radius: 5px;
     margin-bottom: 20px;
     line-height: 1.7;
+    .email-container {
+      flex-basis: 35%;
+    }
+    .main-info-container {
+      flex-basis: 65%;
+    }
   }
 }
 </style>
