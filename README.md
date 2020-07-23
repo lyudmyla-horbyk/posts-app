@@ -1,4 +1,13 @@
-# posts-app
+# text-editor
+This project is a simple posts-app.
+
+### Technologies
+Project is created with: 
+* Vue.js
+* Vuex
+* Sass
+* Vue-router
+* Axios
 
 ## Project setup
 ```
