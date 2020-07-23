@@ -35,14 +35,16 @@ export default {
     submitEmail() {
       if (this.allowedEmails.includes(this.email)) {
         this.login(this.email);
+        this.$router.push({ name: "Home" });
       } else {
         this.popupIncorrectEmail = true;
+        this.logout(this.email);
       }
     },
     closePopup() {
       this.popupIncorrectEmail = false;
     },
-    ...mapActions(["fetchUsers", "login"])
+    ...mapActions(["fetchUsers", "login", "logout"])
   },
   mounted() {
     // send a GET request
