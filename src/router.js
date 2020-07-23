@@ -4,6 +4,7 @@ import Home from "./views/Home";
 import Login from "./views/Login";
 import Post from "./views/Post";
 import User from "./views/User";
+import PageNotFound from "./views/PageNotFound";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
         name: "User",
         path: "/user",
         component: User
+    },
+    {
+        name: "404",
+        path: "*",
+        component: PageNotFound
     }
 ];
 
